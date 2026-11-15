@@ -40,7 +40,7 @@ Around the turn of the 20th century, Landau showed that Theorem \ref{thm:main} i
 
 It was quite a sensation when, in 1948, Erd\H{o}s and Selberg
 announced that the prime number theorem itself could be established by
-elementary means \cite{erdos,selberg}. For historical context, see Spencer and Graham’s article \cite{spencer-graham}, which reproduces notes by Ernst Straus, and Goldfeld’s account \cite{goldfeld}, which also draws on letters from files Selberg made available to him (cf.~the interview \cite{BS08}).
+elementary means \cite{erdos,selberg}. For historical context, see Spencer and Graham's article \cite{spencer-graham}, which reproduces notes by Ernst Straus, and Goldfeld's account \cite{goldfeld}, which also draws on letters from files Selberg made available to him (cf.~the interview \cite{BS08}).
 Both Erd\H{o}s's and Selberg's arguments use Selberg's ``symmetry
 formula''; see \cite[eq.~(10.4.10), p.~419]{shapiro}.
 In 1984, Daboussi \cite{daboussi} gave a very different elementary
@@ -52,7 +52,7 @@ of $n$ counted with multiplicity.
 
 In this note, we present a simplification of Daboussi's argument for Theorem~\ref{thm:main}. Let $P^{+}(n)$ denote the largest prime factor of $n$, adopting the convention that $P^{+}(1):=1$. We say $n$ is $y$-smooth if $P^{+}(n)\le y$. For $x\ge1$ and $y\ge 2$, put
 \[ \Psi(x,y):=\sum_{\substack{n\le x \\ P^{+}(n)\le y}} 1, \qquad M(x,y):=\sum_{\substack{n\le x \\ P^{+}(n)\le y}} \mu(n).\]
-Set \[ a:=\limsup_{x\to\infty}\frac{|M(x)|}{x},\] so that the PNT is equivalent to proving that $a=0$. 
+Set \[ a:=\limsup_{x\to\infty}\frac{|M(x)|}{x},\] so that the PNT is equivalent to proving that $a=0$.
 
 A central component of Daboussi's proof is a comparison between $|M(x,y)|$ and $a\Psi(x,y)$, based on slight variants of the ``logarithmic'' relations
 \begin{equation}\label{eq:mobius-log0}
@@ -69,26 +69,13 @@ A central component of Daboussi's proof is a comparison between $|M(x,y)|$ and $
 Daboussi extracts what he needs from \eqref{eq:mobius-log0} and
 \eqref{eq:psi-log0} by integrating against the same carefully
 constructed kernel function; see \cite[Lemma~2, p.~162, and
-\S III.3 and \S IV, pp.~163--164]{daboussi}. 
+\S III.3 and \S IV, pp.~163--164]{daboussi}.
 We avoid any need to introduce a special kernel function by working
 directly with the inequality for
 $\bigl(|M(x,y)|-a\Psi(x,y)\bigr)\log x$ that results from subtracting
 $a$ copies of \eqref{eq:psi-log0} from \eqref{eq:mobius-log0}.
 
 In their lovely book \cite{tmf}, Tenenbaum and Mend\`es France describe a variant of Daboussi's argument that, like ours, avoids Daboussi's kernel function. The tradeoff is the need to develop certain ground-floor estimates from the theory of smooth numbers, including that $\Psi(x^u,x)/x^u \approx \rho(u)$ (Dickman's $\rho$-function) for bounded $u$ (with a key step in their proof being that $|M(x^u,x)|/x^u \lessapprox a\rho(u)$ in the same range). Our arrangement of the argument requires no nontrivial estimates at all on $\Psi(x,y)$.
-
-% Daboussi's original argument avoids these estimates for
-% $\Psi(x,y)$. Instead, he constructs a positive, decreasing,
-% smooth function $k(s)$ satisfying \cite[Lemma~2]{daboussi}
-% \[
-% s k(s)-\int_s^{s+1}k(v)\,\mathrm{d}v=1\qquad(s>0).
-% \]
-% The construction is elementary,
-% although the choice of kernel is not immediately apparent.
-% Our argument dispenses with both the smooth-number estimates
-% and the kernel. We obtain the required bound for the excess
-% directly from the logarithmic identities for $M(x,y)$ and
-% $\Psi(x,y)$, using Mertens' estimates.
 
 Of course, we do need \emph{something}. We will make free use of the following two estimates of Mertens, valid for $x\ge2$:
 \[
@@ -107,7 +94,7 @@ P.\,P.~thanks OpenAI and Anthropic for providing complimentary access through th
 \subsection*{Other acknowledgements} P.\,P. presented this argument in a Fall 2026 graduate course offered at the University of Georgia. He thanks the class, and the university, for allowing him this opportunity to workshop the proof.
 
 \section{A Fundamental Lemma and the deduction of Theorem \ref{thm:main}}\label{sec:fundamental}
-The M\"{o}bius function is important in number theory precisely because it provides an elegant, number-theoretically friendly answer to the question of ``who is number $1$'': 
+The M\"{o}bius function is important in number theory precisely because it provides an elegant, number-theoretically friendly answer to the question of ``who is number $1$'':
 \[ \mathbf1_{n=1} = \sum_{d\mid n}\mu(d).\] Letting $x\ge 1$ and summing this identity over $n\le x$,
 \[
 1=\sum_{d\le x}\mu(d)\left\lfloor\frac xd\right\rfloor
@@ -157,7 +144,7 @@ at most $1$, it has constant sign there. This gives
 \ge\frac a2\log B=6.
 \]
 But \eqref{eq:signed}, applied at $BX$ and at $X$, bounds the
-left-hand side strictly below $6$. 
+left-hand side strictly below $6$.
 
 Now let $X\ge X_0:=8/a$, and choose $u\in[X,BX]$ satisfying
 \eqref{eq:small}. To obtain a lower bound for the integral in the
@@ -227,7 +214,7 @@ $j:=\lfloor x/c\rfloor<P$, we obtain
 \sum_{j=1}^{P-1}|M(j,y)|
 \sum_{\substack{x/(j+1)<c\le x/j\\(c,P)=1}}1.
 \]
-View $y$ as fixed. Since every block of $P$ consecutive integers $c$ contains precisely $\varphi(P)$ that satisfy $(c,P)=1$, 
+View $y$ as fixed. Since every block of $P$ consecutive integers $c$ contains precisely $\varphi(P)$ that satisfy $(c,P)=1$,
 \[
 \sum_{\substack{x/(j+1)<c\le x/j\\(c,P)=1}}1
 =x\frac{\varphi(P)}P\left(\frac1j-\frac1{j+1}\right)+O_y(1).
@@ -263,12 +250,12 @@ To see this, observe that by partial summation,
 \sum_{\substack{n\le X\\P^+(n)\le y}}\frac1n
 =\frac{\Psi(X,y)}X+\int_1^X\frac{\Psi(t,y)}t\dt.
 \end{equation}
-For every positive integer $n\le X$, and every prime $p$, the exponent of $p$ in $n$ is at most $\log{X}/\log{2}$. Hence (keeping in mind that $y$ is fixed), 
+For every positive integer $n\le X$, and every prime $p$, the exponent of $p$ in $n$ is at most $\log{X}/\log{2}$. Hence (keeping in mind that $y$ is fixed),
 \[
 \Psi(X,y)\le
 \left(1+\frac{\log X}{\log2}\right)^{\pi(y)}=o(X).
 \]
-Sending $X$ to infinity in \eqref{eq:smoothharmonic} yields the first equality in 
+Sending $X$ to infinity in \eqref{eq:smoothharmonic} yields the first equality in
 \eqref{eq:positive-mass}. The second follows by expanding the Euler product. Finally, the proposition itself follows by comparing \eqref{eq:smooth-lower} and \eqref{eq:positive-mass}.\end{proof}
 
 To apply Proposition~\ref{prop:comparison} to the Fundamental Lemma,
@@ -278,12 +265,6 @@ E_y(t)=\pos{\frac{|M(t,y)|}t-a\frac{\Psi(t,y)}t},
 \qquad
 D_y(t)=\pos{a\frac{\Psi(t,y)}t-\frac{|M(t,y)|}t}.
 \]
-% Both are integrable with respect to $\mathrm{d}t/t$ by
-% \eqref{eq:positive-mass}, since
-% \[
-% E_y(t)\le\frac{\Psi(t,y)}t,\qquad
-% D_y(t)\le a\frac{\Psi(t,y)}t.
-% \]
 The integrand in \eqref{eq:comparison} is $E_y(t)-D_y(t)$, so that Proposition~\ref{prop:comparison} can be restated as the assertion that
 \begin{equation}\label{eq:balance}
 \int_1^\infty D_y(t)\dt\le\int_1^\infty E_y(t)\dt.
@@ -328,19 +309,19 @@ gives
 So the remaining fight is over the case of a single letter: We must improve $O(\log y)$ to $o(\log y)$.
 
 We split the integral at $y$. The required estimate for $\int_1^{y} E_y(t)\,\mathrm{d}t/t$ follows from the definition of
-$a$. Given $\eps>0$, choose $T\ge1$ so that $|M(t)|/t\le a+\eps$
+$a$. Indeed, given $\eps>0$, choose $T\ge1$ so that $|M(t)|/t\le a+\eps$
 for $t\ge T$. Then, for $T\le t\le y$,
 \[
 E_y(t)
 =\pos{\frac{|M(t)|}t-a+a\frac{\{t\}}t}
 \le\eps+\frac at.
 \]
-For $y\ge T$, integrating this estimate, using that $E_y(t)\le1$ below $T$, we get that
+Integrating this estimate, using that $E_y(t)\le1$ when $t\le T$, we get that
 \[
 \int_1^yE_y(t)\dt
-\le\log T+\eps\log(y/T)+a.
+\le\log T+\eps\log(y/T)+a
 \]
-Hence,
+for all $y\ge T$. Hence,
 \[  \limsup_{y\to\infty} \frac{1}{\log{y}}\int_1^yE_y(t)\dt \le \eps.\]
 As $\eps > 0$ is arbitrary,
 \begin{equation}\label{eq:below}
@@ -350,7 +331,7 @@ As $\eps > 0$ is arbitrary,
 To handle the remaining range $(y,\infty)$, we need the ``logarithmic'' relations quoted in the introduction. We begin their derivation with some simple consequences of M\"{o}bius inversion. Writing $\Lambda$ for the von Mangoldt function and starting from
 \begin{equation}\label{eq:chebyshevlog} \log{n} = \sum_{p^k \mid n} \log{p} = \sum_{d \mid n} \Lambda(d),  \end{equation}
 we find that
-\begin{align*} \Lambda(n) &= \sum_{d\mid n} \mu(d)\log{(n/d)} 
+\begin{align*} \Lambda(n) &= \sum_{d\mid n} \mu(d)\log{(n/d)}
 \\&= \log{n} \sum_{d\mid n} \mu(d) - \sum_{d \mid n}\mu(d)\log{d}\\
 &=- \sum_{d \mid n}\mu(d)\log{d}. \end{align*}
 Inverting this last formula for $\Lambda(n)$ gives
@@ -358,9 +339,9 @@ Inverting this last formula for $\Lambda(n)$ gives
 -\mu(n)\log n=\sum_{p^k\mid n}\log p\,\mu(n/p^k).
 \end{equation}
 (Here and below, sums over $p^k$ run over primes $p$ and positive
-integers $k$.) 
+integers $k$.)
 
-Summing \eqref{eq:muchebyshev} over $y$-smooth integers $n\le x$, and reversing the order of summation, 
+Summing \eqref{eq:muchebyshev} over $y$-smooth integers $n\le x$, and reversing the order of summation,
 \[
 \begin{aligned}
 -\sum_{\substack{n\le x\\P^+(n)\le y}}\mu(n)\log n
@@ -402,7 +383,7 @@ Subtracting $a$ times \eqref{eq:psi-log} from \eqref{eq:mobius-log2}, we obtain
 &\qquad+\int_1^x\bigl(|M(t,y)|-a\Psi(t,y)\bigr)\dt.
 \end{align*}
 Replacing each difference on the right by its positive part only
-increases the right-hand side, and so preserves the inequality. Since the resulting expression is nonnegative, the inequality is still preserved if we then replace the left-hand side with \emph{its} positive part. Noting that $(|M(t,y)|-a\Psi(t,y))^+=tE_y(t)$, we deduce after dividing by $x$ that 
+increases the right-hand side, and so preserves the inequality. Since the resulting expression is nonnegative, the inequality is still preserved if we then replace the left-hand side with \emph{its} positive part. Noting that $(|M(t,y)|-a\Psi(t,y))^+=tE_y(t)$, we deduce after dividing by $x$ that
 \begin{equation}\label{eq:excess-inequality}
 E_y(x)\log x
 \le\sum_{\substack{p\le y\\p^k\le x}}
@@ -410,7 +391,7 @@ E_y(x)\log x
  +\int_1^x\frac tx E_y(t)\dt.
 \end{equation}
 
-We integrate \eqref{eq:excess-inequality} with respect to $\mathrm{d}x/x$, 
+We integrate \eqref{eq:excess-inequality} with respect to $\mathrm{d}x/x$,
 over $[1,\infty)$. For each prime power $p^k$, substituting
 $x=p^kt$ gives
 \[
@@ -426,7 +407,7 @@ For the remaining term, we reverse the order of integration:
 &=\int_1^\infty E_y(t)\dt.
 \end{aligned}
 \]
-(Here all manipulations of sums and integrals are justified by nonnegativity.) Combining the two contributions, 
+(Here all manipulations of sums and integrals are justified by nonnegativity.) Combining the two contributions,
 \[
 \int_1^\infty E_y(t)\log t\dt
 \le\left(1+\sum_{p\le y}\sum_{k\ge1}\frac{\log p}{p^k}\right)
@@ -485,7 +466,7 @@ Comparing with \eqref{eq:weighted-tail}, we find that
 \int_{y^{1+\eps}}^\infty E_y(t)\dt=o(\log y).
 \]
 Combining the estimates for the three ranges gives
-$\int_1^\infty E_y(t)\,\mathrm{d}t/t 
+$\int_1^\infty E_y(t)\,\mathrm{d}t/t
 \le\eps\log y+o(\log y)$. Dividing by $\log y$ and letting $y\to\infty$, we obtain
 \[
 \limsup_{y\to\infty}\frac1{\log y}
