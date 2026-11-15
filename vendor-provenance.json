@@ -1,0 +1,17 @@
+{
+  "Daboussi/MertensUpper.lean": {
+    "copied_from": "C:/Codex2/amicable-research/lean-audit/MertensUpper.lean",
+    "repository": "https://github.com/AxiomMath/PrimeGapsLib",
+    "revision": "1faa7b14e82ddebc2772dfb9153922f01b106477",
+    "upstream_sources": [
+      "PrimeGapsTheory/NumberTheory/PrimeSumEstimates.lean",
+      "PrimeGapsTheory/Arithmetic/Mertens/TauK.lean"
+    ],
+    "prior_local_changes": [
+      "Extracted required theorem sections into a standalone mathlib-only file",
+      "Changed outer namespace for extracted TauK section; retained foundation namespace"
+    ],
+    "changes_in_this_project": "None; copied byte-for-byte",
+    "license": "vendor-licenses/PrimeGapsLib-LICENSE"
+  }
+}

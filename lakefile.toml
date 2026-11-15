@@ -1,0 +1,20 @@
+name = "daboussi-pollack"
+version = "0.1.0"
+defaultTargets = ["Proofs", "Challenge", "Solution"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "3f6737de4761ec7bf368491fe9faccc991ebd6ca"
+
+[[lean_lib]]
+name = "Daboussi"
+
+[[lean_lib]]
+name = "Proofs"
+
+[[lean_lib]]
+name = "Challenge"
+
+[[lean_lib]]
+name = "Solution"

@@ -1,0 +1,9 @@
+PASS: Challenge and Solution theorem signatures are textually identical.
+PASS: zero solution/supporting-source sorries; no sorry in definitions.
+PASS: exactly one intentional Challenge placeholder.
+PASS: reused MertensUpper.lean is byte-for-byte identical to the local original.
+PASS: formalization.yaml validated against the official v0.4 schema.
+PASS: main theorem transitive axioms are propext, Classical.choice, Quot.sound.
+PASS: bundled lake comparator accepted the exports, including kernel replay; exit code 0.
+LIMITATION: the Windows comparator run used --inadvisably-no-sandbox; no adversarial build isolation.
+NOT RUN: fresh Lake dependency download. The pinned local mathlib cache was used.

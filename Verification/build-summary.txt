@@ -1,0 +1,6 @@
+PASS: all 38 supporting modules rebuilt in dependency order.
+PASS: Proofs, Audit, Challenge, Solution, MainAudit compiled.
+PASS: umbrella module Daboussi.lean compiled separately.
+PASS: 169 supporting declarations and the main theorem use only standard axioms.
+PASS: comparator statement comparison, axiom check, and kernel replay; exit code 0.
+Windows exported-proof run, without adversarial build isolation.

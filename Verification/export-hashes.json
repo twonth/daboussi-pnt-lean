@@ -1,0 +1,10 @@
+{
+  "Challenge.ndjson": {
+    "bytes": 37017633,
+    "sha256": "62ccc0e9c43ad8371b2e55fdd7900a5e92c946c1626fa8abb9483e7ed9701299"
+  },
+  "Solution.ndjson": {
+    "bytes": 296679814,
+    "sha256": "5f843a5e7184f42f1300a4d7ddf49abcc03479af47e34b064063a9ac103e7ac1"
+  }
+}

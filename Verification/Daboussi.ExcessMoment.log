@@ -1,0 +1,8 @@
+Daboussi\ExcessMoment.lean:34:4: warning: `MeasureTheory.integrable_finset_sum` has been deprecated: Use `MeasureTheory.integrable_finsetSum` instead
+
+Hint: Replace the deprecated name:
+  integrable_finset_╠╡s╠╡S╠▓um
+Daboussi\ExcessMoment.lean:44:56: warning: `MeasureTheory.integral_finset_sum` has been deprecated: Use `MeasureTheory.integral_finsetSum` instead
+
+Hint: Replace the deprecated name:
+  integral_finset_╠╡s╠╡S╠▓um

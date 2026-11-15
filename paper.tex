@@ -1,0 +1,563 @@
+\documentclass[11pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{parskip}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[expansion=false]{microtype}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dt}{\,\frac{\mathrm{d}t}{t}}
+\newcommand{\dx}{\,\frac{\mathrm{d}x}{x}}
+\newcommand{\pos}[1]{\left(#1\right)^+}
+
+\title[Daboussi's elementary proof, revisited]{Daboussi's elementary proof of the prime number theorem, revisited}
+\author{Paul Pollack}
+\address{Department of Mathematics, University of Georgia, Athens GA 30602}
+\email{pollack@uga.edu}
+\subjclass[2020]{Primary 11N05; Secondary 11N25}
+\keywords{Prime number theorem, M\"obius function, smooth numbers, elementary methods}
+\date{}
+
+\begin{document}
+\begin{abstract} In 1984, Daboussi gave an ``elementary'' proof of the prime number theorem whose central actors are the smooth numbers (numbers with no large prime factors). We explain a variant of his argument that might be considered even more elementary.
+\end{abstract}
+\maketitle
+
+\section{Introduction}
+Let $\mu$ denote the M\"obius function, and let $M(x):=\sum_{n\le x}\mu(n)$ be the corresponding summatory function. We will give a simple proof of the following 1897 theorem of von Mangoldt \cite{mangoldt}.
+\begin{theorem}\label{thm:main}
+$M(x)=o(x)$, as $x\to\infty$.
+\end{theorem}
+
+Around the turn of the 20th century, Landau showed that Theorem \ref{thm:main} is ``elementarily equivalent'' to the prime number theorem (PNT). (His 1899 doctoral thesis proves Theorem \ref{thm:main} from the prime number theorem \cite[pp.~6--16]{landau-thesis}; Landau published the converse implication in 1911 \cite[pp.~973--979]{landau-equivalence}. See also the elegant textbook treatment by Shapiro \cite[\S10.3, pp.~408--414]{shapiro}.) Here ``equivalent'' means that if either statement is assumed, there is a quick proof of the other, significantly shorter than a proof of either statement from scratch. The adverb ``elementarily'' draws a contrast with the more typical complex function-theoretic methods employed in prime number theory: The quick proofs in question involve only real variables, with Riemann's zeta function never (explicitly) mentioned.
+
+It was quite a sensation when, in 1948, Erd\H{o}s and Selberg
+announced that the prime number theorem itself could be established by
+elementary means \cite{erdos,selberg}. For historical context, see Spencer and Graham’s article \cite{spencer-graham}, which reproduces notes by Ernst Straus, and Goldfeld’s account \cite{goldfeld}, which also draws on letters from files Selberg made available to him (cf.~the interview \cite{BS08}).
+Both Erd\H{o}s's and Selberg's arguments use Selberg's ``symmetry
+formula''; see \cite[eq.~(10.4.10), p.~419]{shapiro}.
+In 1984, Daboussi \cite{daboussi} gave a very different elementary
+proof of the PNT, using smooth numbers. Further elementary proofs
+were later given by Hildebrand \cite{hildebrand}, via a large sieve
+inequality, and --- quite recently --- Richter \cite{richter}, through a general result
+on the distribution of $\Omega(n)$, the number of prime factors
+of $n$ counted with multiplicity.
+
+In this note, we present a simplification of Daboussi's argument for Theorem~\ref{thm:main}. Let $P^{+}(n)$ denote the largest prime factor of $n$, adopting the convention that $P^{+}(1):=1$. We say $n$ is $y$-smooth if $P^{+}(n)\le y$. For $x\ge1$ and $y\ge 2$, put
+\[ \Psi(x,y):=\sum_{\substack{n\le x \\ P^{+}(n)\le y}} 1, \qquad M(x,y):=\sum_{\substack{n\le x \\ P^{+}(n)\le y}} \mu(n).\]
+Set \[ a:=\limsup_{x\to\infty}\frac{|M(x)|}{x},\] so that the PNT is equivalent to proving that $a=0$. 
+
+A central component of Daboussi's proof is a comparison between $|M(x,y)|$ and $a\Psi(x,y)$, based on slight variants of the ``logarithmic'' relations
+\begin{equation}\label{eq:mobius-log0}
+|M(x,y)|\log x
+\le \sum_{\substack{p\le y\\p^k\le x}}\log p\,|M(x/p^k,y)|
+ +\int_1^x |M(t,y)|\dt,
+\end{equation}
+\begin{equation}\label{eq:psi-log0}
+\Psi(x,y)\log x
+=\sum_{\substack{p\le y\\p^k\le x}}\log p\,\Psi(x/p^k,y)
+ +\int_1^x\Psi(t,y)\dt.
+\end{equation}
+(We prove both relations in \S\ref{sec:excess} below.)
+Daboussi extracts what he needs from \eqref{eq:mobius-log0} and
+\eqref{eq:psi-log0} by integrating against the same carefully
+constructed kernel function; see \cite[Lemma~2, p.~162, and
+\S III.3 and \S IV, pp.~163--164]{daboussi}. 
+We avoid any need to introduce a special kernel function by working
+directly with the inequality for
+$\bigl(|M(x,y)|-a\Psi(x,y)\bigr)\log x$ that results from subtracting
+$a$ copies of \eqref{eq:psi-log0} from \eqref{eq:mobius-log0}.
+
+In their lovely book \cite{tmf}, Tenenbaum and Mend\`es France describe a variant of Daboussi's argument that, like ours, avoids Daboussi's kernel function. The tradeoff is the need to develop certain ground-floor estimates from the theory of smooth numbers, including that $\Psi(x^u,x)/x^u \approx \rho(u)$ (Dickman's $\rho$-function) for bounded $u$ (with a key step in their proof being that $|M(x^u,x)|/x^u \lessapprox a\rho(u)$ in the same range). Our arrangement of the argument requires no nontrivial estimates at all on $\Psi(x,y)$.
+
+% Daboussi's original argument avoids these estimates for
+% $\Psi(x,y)$. Instead, he constructs a positive, decreasing,
+% smooth function $k(s)$ satisfying \cite[Lemma~2]{daboussi}
+% \[
+% s k(s)-\int_s^{s+1}k(v)\,\mathrm{d}v=1\qquad(s>0).
+% \]
+% The construction is elementary,
+% although the choice of kernel is not immediately apparent.
+% Our argument dispenses with both the smooth-number estimates
+% and the kernel. We obtain the required bound for the excess
+% directly from the logarithmic identities for $M(x,y)$ and
+% $\Psi(x,y)$, using Mertens' estimates.
+
+Of course, we do need \emph{something}. We will make free use of the following two estimates of Mertens, valid for $x\ge2$:
+\[
+\sum_{p\le x}\frac{\log p}{p}=\log x+O(1),\qquad
+\prod_{p\le x}\left(1-\frac1p\right)^{-1}\ll\log x.
+\]
+Here and throughout, the variable $p$ is reserved for primes. For (elementary)
+proofs, see Shapiro \cite[Chapter~9]{shapiro}.
+
+\subsection*{Use of LLMs} This is a work of exposition. It is offered as a (hopefully!) human-readable ``digestion'' of output produced by ChatGPT 6 Astra, as prompted by the author. P.\,P. takes no credit for the new mathematics but stands with, by, and beside the final manuscript.
+
+Lean formalizations of Theorem~\ref{thm:main} and the smooth-number argument presented here, together with verification records and instructions for reproducing the checks, are available at \url{https://github.com/twonth/daboussi-pnt-lean}. The formalized results use only Lean's standard axioms of propositional extensionality (\texttt{propext}), classical choice (\texttt{Classical.choice}), and quotient soundness (\texttt{Quot.sound}).
+
+P.\,P.~thanks OpenAI and Anthropic for providing complimentary access through the ChatGPT for Academic Researchers program and the Claude Team plan for scientists, respectively.
+
+\subsection*{Other acknowledgements} P.\,P. presented this argument in a Fall 2026 graduate course offered at the University of Georgia. He thanks the class, and the university, for allowing him this opportunity to workshop the proof.
+
+\section{A Fundamental Lemma and the deduction of Theorem \ref{thm:main}}\label{sec:fundamental}
+The M\"{o}bius function is important in number theory precisely because it provides an elegant, number-theoretically friendly answer to the question of ``who is number $1$'': 
+\[ \mathbf1_{n=1} = \sum_{d\mid n}\mu(d).\] Letting $x\ge 1$ and summing this identity over $n\le x$,
+\[
+1=\sum_{d\le x}\mu(d)\left\lfloor\frac xd\right\rfloor
+ =x\sum_{d\le x}\frac{\mu(d)}d
+  -\sum_{d\le x}\mu(d)\left\{\frac xd\right\}.
+\]
+Consequently,
+\[
+\left|\sum_{d\le x}\frac{\mu(d)}d\right|
+<\frac{1+\lfloor x\rfloor}{x}\le2\qquad(x\ge1).
+\]
+Expressing the same sum by partial summation, we have
+\[
+\sum_{n\le x}\frac{\mu(n)}n
+=\frac{M(x)}x+\int_1^x\frac{M(t)}t\dt,
+\]
+and hence
+\begin{equation}\label{eq:signed}
+\left|\int_1^x\frac{M(t)}t\dt\right|<3\qquad(x\ge1).
+\end{equation}
+
+Our proof of Theorem \ref{thm:main} combines \eqref{eq:signed} with the following estimate, whose
+proof occupies \S\S\ref{sec:smooth}--\ref{sec:excess}.
+\begin{lemma}[Fundamental Lemma]\label{lem:fundamental}
+As $x\to\infty$,
+\[
+\int_1^x\pos{a-\frac{|M(t)|}{t}}\dt=o(\log x).
+\]
+{\rm (}Here $v^+=\max\{v,0\}$ denotes the positive part of $v$.{\rm )}
+\end{lemma}
+
+Roughly speaking, Lemma \ref{lem:fundamental} says that $|M(t)|/t$ spends most of its time close to its limit superior $a$, with time measured logarithmically.
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}, assuming the Fundamental Lemma]
+Suppose for a contradiction that $a>0$, and fix $B:=\exp(12/a)$.
+We first use \eqref{eq:signed} to show that every interval $[X,BX]$,
+with $X\ge1$, contains a $u$ for which
+\begin{equation}\label{eq:small}
+|M(u)|\le\frac a2u.
+\end{equation}
+Indeed, if there is no such $u$, then $M(t)$ is nonzero
+throughout $[X,BX]$. Since $M$ takes integer values and jumps by
+at most $1$, it has constant sign there. This gives
+\[
+\left|\int_X^{BX}\frac{M(t)}t\dt\right|
+=\int_X^{BX}\frac{|M(t)|}t\dt
+\ge\frac a2\log B=6.
+\]
+But \eqref{eq:signed}, applied at $BX$ and at $X$, bounds the
+left-hand side strictly below $6$. 
+
+Now let $X\ge X_0:=8/a$, and choose $u\in[X,BX]$ satisfying
+\eqref{eq:small}. To obtain a lower bound for the integral in the
+Fundamental Lemma, we extend this estimate to nearby values of $t$.
+For $u\le t\le u(1+a/8)$, the bound $|\mu(n)|\le1$ gives
+\[
+\begin{aligned}
+|M(t)|
+&\le |M(u)|+|M(t)-M(u)|\\
+&\le\frac a2u+(t-u)+1\\
+&\le\frac a2u+\frac a8u+\frac a8u
+\le\frac{3a}{4}t,
+\end{aligned}
+\]
+where we used $1\le au/8$. The bounds $u\le BX$ and $a\le1$ also
+give $u(1+a/8)\le2BX$, so
+\[
+\int_X^{2BX}\pos{a-\frac{|M(t)|}t}\dt
+\ge\int_u^{u(1+a/8)}\frac a4\dt
+=\frac a4\log(1+a/8)>0.
+\]
+We apply this bound with $X=(2B)^{j} X_0$, for $j=0,\ldots, N-1$, noting that the corresponding intervals $(X,2BX]$ are disjoint and contained in $(1,(2B)^{N} X_0]$. Adding these estimates gives
+\[
+\int_1^{(2B)^NX_0}\pos{a-\frac{|M(t)|}t}\dt
+\ge N\frac a4\log(1+a/8).
+\]
+But the Fundamental Lemma implies that our left-hand side is $o(\log((2B)^NX_0))=o(N)$ as $N\to\infty$. This contradiction forces $a=0$.
+\end{proof}
+
+\section{Splitting off bounded prime factors}\label{sec:smooth}
+Recall from the introduction that $\Psi(x,y)=\sum_{n\le x,\,P^{+}(n)\le y} 1$ while $M(x,y)=\sum_{n\le x,\,P^{+}(n)\le y} \mu(n)$. Fix $y\ge 2$, and put
+\[
+P=\prod_{p\le y}p.
+\]
+We have $|M(t,y)|\le\Psi(t,y)$ and, since every positive integer at
+most $y$ is $y$-smooth,
+\[
+M(t,y)=M(t),\qquad \Psi(t,y)=\lfloor t\rfloor\qquad(1\le t\le y).
+\]
+At the other end of the range, only the squarefree $y$-smooth
+integers contribute to $M(t,y)$, and these are precisely the
+divisors of $P$. Thus, for $t\ge P$,
+\begin{equation}\label{eq:support}
+M(t,y)=\sum_{d\mid P}\mu(d)=0.
+\end{equation}
+
+Following Daboussi, we compare $|M(x,y)|$ with $a\Psi(x,y)$. The following estimate gets us started.
+
+\begin{proposition}\label{prop:comparison}
+For every $y\ge2$,
+\begin{equation}\label{eq:comparison}
+\int_1^\infty
+\left(\frac{|M(t,y)|}t-a\frac{\Psi(t,y)}t\right)\dt\ge0.
+\end{equation}
+\end{proposition}
+\begin{proof} Each positive integer admits a unique decomposition in the form $n=bc$, where
+$P^+(b)\le y$ and $(c,P)=1$. Since $(b,c)=1$, the multiplicativity
+of $\mu$ gives
+\[
+M(x)=\sum_{\substack{c\le x\\(c,P)=1}}\mu(c)M(x/c,y).
+\]
+The terms with $c\le x/P$ vanish by \eqref{eq:support}. Taking
+absolute values in the remaining terms and grouping according to the value of
+$j:=\lfloor x/c\rfloor<P$, we obtain
+\[
+|M(x)|\le
+\sum_{j=1}^{P-1}|M(j,y)|
+\sum_{\substack{x/(j+1)<c\le x/j\\(c,P)=1}}1.
+\]
+View $y$ as fixed. Since every block of $P$ consecutive integers $c$ contains precisely $\varphi(P)$ that satisfy $(c,P)=1$, 
+\[
+\sum_{\substack{x/(j+1)<c\le x/j\\(c,P)=1}}1
+=x\frac{\varphi(P)}P\left(\frac1j-\frac1{j+1}\right)+O_y(1).
+\]
+Substituting this into our bound for $|M(x)|$, dividing by $x$,
+and letting $x\to\infty$, we find that
+\[
+\begin{aligned}
+a
+&\le\frac{\varphi(P)}P
+ \sum_{j=1}^{P-1}|M(j,y)|\left(\frac1j-\frac1{j+1}\right)\\
+&=\frac{\varphi(P)}P
+ \int_1^\infty\frac{|M(t,y)|}t\dt.
+\end{aligned}
+\]
+(For the final equality, we use that $M(t,y)=M(j,y)$ on $[j,j+1)$
+and $M(t,y)=0$ for $t\ge P$.) Rearranging, we have that
+\begin{equation}\label{eq:smooth-lower}
+\int_1^\infty\frac{|M(t,y)|}t\dt
+\ge a\frac P{\varphi(P)}
+=a\prod_{p\le y}(1-1/p)^{-1}.
+\end{equation}
+
+The product on the right also occurs in the integral of
+$\Psi(t,y)/t$. In fact,
+\begin{equation}\label{eq:positive-mass}
+\int_1^\infty\frac{\Psi(t,y)}t\dt
+=\sum_{P^+(n)\le y}\frac1n
+=\prod_{p\le y}(1-1/p)^{-1}.
+\end{equation}
+To see this, observe that by partial summation,
+\begin{equation}\label{eq:smoothharmonic}
+\sum_{\substack{n\le X\\P^+(n)\le y}}\frac1n
+=\frac{\Psi(X,y)}X+\int_1^X\frac{\Psi(t,y)}t\dt.
+\end{equation}
+For every positive integer $n\le X$, and every prime $p$, the exponent of $p$ in $n$ is at most $\log{X}/\log{2}$. Hence (keeping in mind that $y$ is fixed), 
+\[
+\Psi(X,y)\le
+\left(1+\frac{\log X}{\log2}\right)^{\pi(y)}=o(X).
+\]
+Sending $X$ to infinity in \eqref{eq:smoothharmonic} yields the first equality in 
+\eqref{eq:positive-mass}. The second follows by expanding the Euler product. Finally, the proposition itself follows by comparing \eqref{eq:smooth-lower} and \eqref{eq:positive-mass}.\end{proof}
+
+To apply Proposition~\ref{prop:comparison} to the Fundamental Lemma,
+we separate its integrand into positive and negative parts. Define ``excess'' and ``deficit'' functions by
+\[
+E_y(t)=\pos{\frac{|M(t,y)|}t-a\frac{\Psi(t,y)}t},
+\qquad
+D_y(t)=\pos{a\frac{\Psi(t,y)}t-\frac{|M(t,y)|}t}.
+\]
+% Both are integrable with respect to $\mathrm{d}t/t$ by
+% \eqref{eq:positive-mass}, since
+% \[
+% E_y(t)\le\frac{\Psi(t,y)}t,\qquad
+% D_y(t)\le a\frac{\Psi(t,y)}t.
+% \]
+The integrand in \eqref{eq:comparison} is $E_y(t)-D_y(t)$, so that Proposition~\ref{prop:comparison} can be restated as the assertion that
+\begin{equation}\label{eq:balance}
+\int_1^\infty D_y(t)\dt\le\int_1^\infty E_y(t)\dt.
+\end{equation}
+That is, the total excess of $|M(t,y)|/t$ over $a\Psi(t,y)/t$ is at least the total deficit, both measured with respect to $\mathrm{d}t/t$.
+
+When $1\le t\le y$, the deficit $D_y(t)$ is closely related to the integrand in the Fundamental Lemma:
+\[
+\begin{aligned}
+D_y(t)
+&=\pos{a\frac{\lfloor t\rfloor}t-\frac{|M(t)|}t}\\
+&=\pos{a-\frac{|M(t)|}t-a\frac{\{t\}}t}
+\ge\pos{a-\frac{|M(t)|}t}-\frac at.
+\end{aligned}
+\]
+(We use here that $(v-h)^+\ge v^+-h$ for $h\ge0$.) Integrating with respect to $\mathrm{d}t/t$, and noting that $\int_1^{y} a/t\,\mathrm{d}t/t \le a$, we obtain
+\begin{equation*}
+\int_1^y\pos{a-\frac{|M(t)|}t}\dt
+\le\int_1^yD_y(t)\dt+a
+\le\int_1^\infty E_y(t)\dt+a,
+\end{equation*}
+using \eqref{eq:balance} in the last step.
+We have therefore reduced the Fundamental Lemma to proving that,
+as $y\to\infty$,
+\begin{equation}\label{eq:excess-goal}
+\int_1^\infty E_y(t)\dt=o(\log y).
+\end{equation}
+
+\section{Making less of the excess}\label{sec:excess}
+
+\begin{proof}[Proof of Lemma~\ref{lem:fundamental}]
+To prove \eqref{eq:excess-goal}, we start with the trivial bounds
+\[
+0\le E_y(t)\le\frac{|M(t,y)|}t\le\frac{\Psi(t,y)}t\le1.
+\]
+Together with \eqref{eq:positive-mass} and Mertens' estimate, this
+gives
+\begin{equation}\label{eq:excess-bigO}
+\int_1^\infty E_y(t)\dt
+\le\prod_{p\le y}(1-1/p)^{-1}\ll\log y.
+\end{equation}
+So the remaining fight is over the case of a single letter: We must improve $O(\log y)$ to $o(\log y)$.
+
+We split the integral at $y$. The required estimate for $\int_1^{y} E_y(t)\,\mathrm{d}t/t$ follows from the definition of
+$a$. Given $\eps>0$, choose $T\ge1$ so that $|M(t)|/t\le a+\eps$
+for $t\ge T$. Then, for $T\le t\le y$,
+\[
+E_y(t)
+=\pos{\frac{|M(t)|}t-a+a\frac{\{t\}}t}
+\le\eps+\frac at.
+\]
+For $y\ge T$, integrating this estimate, using that $E_y(t)\le1$ below $T$, we get that
+\[
+\int_1^yE_y(t)\dt
+\le\log T+\eps\log(y/T)+a.
+\]
+Hence,
+\[  \limsup_{y\to\infty} \frac{1}{\log{y}}\int_1^yE_y(t)\dt \le \eps.\]
+As $\eps > 0$ is arbitrary,
+\begin{equation}\label{eq:below}
+\int_1^yE_y(t)\dt=o(\log y).
+\end{equation}
+
+To handle the remaining range $(y,\infty)$, we need the ``logarithmic'' relations quoted in the introduction. We begin their derivation with some simple consequences of M\"{o}bius inversion. Writing $\Lambda$ for the von Mangoldt function and starting from
+\begin{equation}\label{eq:chebyshevlog} \log{n} = \sum_{p^k \mid n} \log{p} = \sum_{d \mid n} \Lambda(d),  \end{equation}
+we find that
+\begin{align*} \Lambda(n) &= \sum_{d\mid n} \mu(d)\log{(n/d)} 
+\\&= \log{n} \sum_{d\mid n} \mu(d) - \sum_{d \mid n}\mu(d)\log{d}\\
+&=- \sum_{d \mid n}\mu(d)\log{d}. \end{align*}
+Inverting this last formula for $\Lambda(n)$ gives
+\begin{equation}\label{eq:muchebyshev}
+-\mu(n)\log n=\sum_{p^k\mid n}\log p\,\mu(n/p^k).
+\end{equation}
+(Here and below, sums over $p^k$ run over primes $p$ and positive
+integers $k$.) 
+
+Summing \eqref{eq:muchebyshev} over $y$-smooth integers $n\le x$, and reversing the order of summation, 
+\[
+\begin{aligned}
+-\sum_{\substack{n\le x\\P^+(n)\le y}}\mu(n)\log n
+&=\sum_{\substack{p\le y\\p^k\le x}}\log p
+  \sum_{\substack{m\le x/p^k\\P^+(m)\le y}}\mu(m)\\
+&=\sum_{\substack{p\le y\\p^k\le x}}\log p\,M(x/p^k,y).
+\end{aligned}
+\]
+On the other hand, partial summation gives
+\[
+\sum_{\substack{n\le x\\P^+(n)\le y}}\mu(n)\log n
+=M(x,y)\log x-\int_1^xM(t,y)\dt.
+\]
+Substituting this into the immediately preceding display and rearranging,
+\begin{equation*}
+M(x,y)\log x
+=-\sum_{\substack{p\le y\\p^k\le x}}\log p\,M(x/p^k,y)
+ +\int_1^xM(t,y)\dt.
+\end{equation*}
+Taking absolute values and appealing to the triangle inequality,
+\begin{equation}\label{eq:mobius-log2}
+|M(x,y)|\log x
+\le \sum_{\substack{p\le y\\p^k\le x}}\log p\,|M(x/p^k,y)|
+ +\int_1^x |M(t,y)|\dt.
+\end{equation}
+This is nothing other than the relation \eqref{eq:mobius-log0}. Carrying out the same calculation with \eqref{eq:chebyshevlog} replacing \eqref{eq:muchebyshev} gives
+\begin{equation}\label{eq:psi-log}
+\Psi(x,y)\log x
+=\sum_{\substack{p\le y\\p^k\le x}}\log p\,\Psi(x/p^k,y)
+ +\int_1^x\Psi(t,y)\dt,
+\end{equation}
+which appeared earlier as \eqref{eq:psi-log0}.
+
+Subtracting $a$ times \eqref{eq:psi-log} from \eqref{eq:mobius-log2}, we obtain
+\begin{align*}
+\bigl(|M(x,y)|-a\Psi(x,y)\bigr)\log x
+&\le\sum_{\substack{p\le y\\p^k\le x}}\log p
+ \bigl(|M(x/p^k,y)|-a\Psi(x/p^k,y)\bigr)\\
+&\qquad+\int_1^x\bigl(|M(t,y)|-a\Psi(t,y)\bigr)\dt.
+\end{align*}
+Replacing each difference on the right by its positive part only
+increases the right-hand side, and so preserves the inequality. Since the resulting expression is nonnegative, the inequality is still preserved if we then replace the left-hand side with \emph{its} positive part. Noting that $(|M(t,y)|-a\Psi(t,y))^+=tE_y(t)$, we deduce after dividing by $x$ that 
+\begin{equation}\label{eq:excess-inequality}
+E_y(x)\log x
+\le\sum_{\substack{p\le y\\p^k\le x}}
+ \frac{\log p}{p^k}E_y(x/p^k)
+ +\int_1^x\frac tx E_y(t)\dt.
+\end{equation}
+
+We integrate \eqref{eq:excess-inequality} with respect to $\mathrm{d}x/x$, 
+over $[1,\infty)$. For each prime power $p^k$, substituting
+$x=p^kt$ gives
+\[
+\int_{p^k}^\infty\frac{\log p}{p^k}E_y(x/p^k)\dx
+=\frac{\log p}{p^k}\int_1^\infty E_y(t)\dt.
+\]
+For the remaining term, we reverse the order of integration:
+\[
+\begin{aligned}
+\int_1^\infty\left(\int_1^x\frac tx E_y(t)\dt\right)\dx
+&=\int_1^\infty E_y(t)
+ \left(\int_t^\infty\frac tx\dx\right)\dt\\
+&=\int_1^\infty E_y(t)\dt.
+\end{aligned}
+\]
+(Here all manipulations of sums and integrals are justified by nonnegativity.) Combining the two contributions, 
+\[
+\int_1^\infty E_y(t)\log t\dt
+\le\left(1+\sum_{p\le y}\sum_{k\ge1}\frac{\log p}{p^k}\right)
+\int_1^\infty E_y(t)\dt.
+\]
+The coefficient on the right is estimated using Mertens' theorem:
+\[
+\begin{aligned}
+\sum_{p\le y}\sum_{k\ge1}\frac{\log p}{p^k}
+&=\sum_{p\le y}\frac{\log p}{p}
+  +\sum_{p\le y}\frac{\log p}{p(p-1)}
+=\log y+O(1).
+\end{aligned}
+\]
+Hence, for some absolute
+constant $C>0$,
+\[
+\int_1^\infty E_y(t)\log t\dt
+\le(\log y+C)\int_1^\infty E_y(t)\dt.
+\]
+Rearranging and applying \eqref{eq:excess-bigO}, we find that
+\begin{equation}\label{eq:centered}
+\int_1^\infty E_y(t)\log(t/y)\dt
+\le C\int_1^\infty E_y(t)\dt=O(\log y).
+\end{equation}
+We are almost home! We already had an $O(\log y)$ bound without
+the factor $\log(t/y)$, but this factor is sensitive to \emph{where}
+the excess occurs.
+
+Recall we have already shown that $\int_1^{y} E_y(t)\, \mathrm{d}t/t = o(\log{y})$. Slightly larger values of $t$, say $y\le t \le y^{1+\eps}$ with $\eps > 0$ fixed, pose no trouble. Since $E_y(t)\le1$,
+\[
+\int_y^{y^{1+\eps}}E_y(t)\dt
+\le\int_y^{y^{1+\eps}}\dt
+=\eps\log y,
+\]
+which will be acceptable to us upon taking $\eps$ small.
+
+It remains to consider $t$ that are substantially larger than $y$, meaning $t\ge y^{1+\eps}$. Moving the contribution from
+$[1,y]$ in \eqref{eq:centered} to the right and using
+\eqref{eq:below}, we obtain
+\begin{align}
+\int_y^\infty E_y(t)\log(t/y)\dt
+&\le\int_1^y E_y(t)\log(y/t)\dt+O(\log y)\notag\\
+&\le(\log y)\int_1^y E_y(t)\dt+O(\log y)\notag\\
+&=o((\log y)^2).\label{eq:weighted-tail}
+\end{align}
+On the other hand, $\log(t/y)\ge\eps\log y$ when
+$t\ge y^{1+\eps}$, so
+\[
+\int_y^\infty E_y(t)\log(t/y)\dt
+\ge\int_{y^{1+\eps}}^\infty E_y(t)\log(t/y)\dt
+\ge\eps\log y\int_{y^{1+\eps}}^\infty E_y(t)\dt.
+\]
+Comparing with \eqref{eq:weighted-tail}, we find that
+\[
+\int_{y^{1+\eps}}^\infty E_y(t)\dt=o(\log y).
+\]
+Combining the estimates for the three ranges gives
+$\int_1^\infty E_y(t)\,\mathrm{d}t/t 
+\le\eps\log y+o(\log y)$. Dividing by $\log y$ and letting $y\to\infty$, we obtain
+\[
+\limsup_{y\to\infty}\frac1{\log y}
+\int_1^\infty E_y(t)\dt\le\eps.
+\]
+But $\eps>0$ is arbitrary, and so $\int_1^\infty E_y(t) \,\mathrm{d}t/t=o(\log y)$, as desired. This proves \eqref{eq:excess-goal}, and hence the Fundamental
+Lemma. As shown in \S\ref{sec:fundamental}, it follows that $M(x)=o(x)$.
+\end{proof}
+
+\begin{thebibliography}{99}
+
+\bibitem{BS08}
+N.~A. Baas and C.~F. Skau, \emph{The lord of the numbers, Atle Selberg. On his life and mathematics}, Bull. Amer. Math. Soc. (N.S.) \textbf{45} (2008), no.~4, 617--649.
+
+\bibitem{daboussi}
+H. Daboussi, \emph{Sur le th\'eor\`eme des nombres premiers},
+C. R. Acad. Sci. Paris S\'er. I Math. \textbf{298} (1984),
+no.~8, 161--164.
+
+\bibitem{erdos}
+P. Erd\H{o}s, \emph{On a new method in elementary number theory
+which leads to an elementary proof of the prime number theorem},
+Proc. Nat. Acad. Sci. U.S.A. \textbf{35} (1949), 374--384.
+
+\bibitem{goldfeld}
+D. Goldfeld, \emph{The elementary proof of the prime number theorem:
+an historical perspective}, in \emph{Number Theory} (New York, 2003),
+D. Chudnovsky, G. Chudnovsky, and M. Nathanson (eds.),
+Springer, New York, 2004, 179--192.
+
+\bibitem{hildebrand}
+A. Hildebrand, \emph{The prime number theorem via the large sieve},
+Mathematika \textbf{33} (1986), 23--30.
+
+\bibitem{landau-thesis}
+E. Landau, \emph{Neuer Beweis der Gleichung
+$\sum_{k=1}^{\infty}\mu(k)/k=0$}, Inauguraldissertation,
+Berlin, 1899.
+
+\bibitem{landau-equivalence}
+E. Landau, \emph{\"Uber die \"Aquivalenz zweier Haupts\"atze
+der analytischen Zahlentheorie}, Sitzungsber. Kaiserl. Akad.
+Wiss. Wien, Math.-Naturwiss. Kl., Abt.~IIa \textbf{120} (1911),
+973--988.
+
+\bibitem{mangoldt}
+H. von Mangoldt, \emph{Beweis der Gleichung
+$\sum_{k=1}^{\infty}\mu(k)/k=0$}, Sitzungsber. K\"onigl.
+Preu\ss. Akad. Wiss. Berlin (1897), 835--852.
+
+\bibitem{richter}
+F. K. Richter, \emph{A new elementary proof of the Prime Number
+Theorem}, Bull. London Math. Soc. \textbf{53} (2021), 1365--1375.
+
+\bibitem{selberg}
+A. Selberg, \emph{An elementary proof of the prime-number theorem},
+Ann. of Math. (2) \textbf{50} (1949), 305--313.
+
+\bibitem{shapiro}
+H. N. Shapiro, \emph{Introduction to the Theory of Numbers},
+John Wiley \& Sons, New York, 1983; reprinted by Dover
+Publications, Mineola, NY, 2008.
+
+\bibitem{spencer-graham}
+J. Spencer and R. Graham, \emph{The elementary proof of the prime
+number theorem}, Math. Intelligencer \textbf{31} (2009),
+no.~3, 18--23.
+
+\bibitem{tmf}
+G. Tenenbaum and M. Mend\`es France, \emph{The Prime Numbers and
+Their Distribution}, translated by P. G. Spain, Student
+Mathematical Library, vol.~6, American Mathematical Society,
+Providence, RI, 2000.
+\end{thebibliography}
+\end{document}

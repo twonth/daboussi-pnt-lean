@@ -1,0 +1,106 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+project:
+  name: "Pollack–Daboussi elementary PNT argument"
+  description: >-
+    Lean formalization of the supplied manuscript's proof of M(x)=o(x), through
+    smooth-number comparison, the excess recurrence and weighted moment, the
+    three-range estimate, the Fundamental Lemma, and geometric blocks.
+  authors:
+    - "OpenAI Codex (AI-generated new formalization)"
+    - "Axiom Math (reused Mertens development; see vendor-provenance.json)"
+  license: "Not specified for new material; Apache-2.0 for the reused Mertens file"
+sources:
+  - title: "Daboussi's elementary proof of the prime number theorem, revisited"
+    authors: ["Paul Pollack"]
+    id: "User-supplied manuscript, preserved in paper.tex"
+    type: "article"
+    location: "Theorem 1 and its proof in sections 2–4"
+    relationship: "formalizes"
+    note: "Source authorship does not imply endorsement or review of this output."
+    author_endorsement: "other"
+related_formalizations:
+  - title: "PrimeGapsLib elementary Mertens estimates, local extraction"
+    id: "https://github.com/AxiomMath/PrimeGapsLib"
+    revision: "1faa7b14e82ddebc2772dfb9153922f01b106477"
+    relationship: "builds-on"
+    note: "Copied local MertensUpper.lean unchanged; provenance and license included."
+classification:
+  arxiv: ["math.NT"]
+  msc2020: ["11N05", "11N25"]
+status:
+  scope: >-
+    Theorem 1, M(x)=o(x), and the full smooth-number proof in the supplied paper.
+    The equivalence with the prime-counting PNT, cited rather than proved in the
+    manuscript, is not separately formalized. No proof gaps remain. The independent
+    Challenge.lean placeholder is excluded from the sorry count.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Quot.sound", "Classical.choice"]
+  main_results:
+    - declaration: "Daboussi.mobius_summatory_limit"
+      file: "Solution.lean"
+      sorry_count: 0
+      axioms: ["propext", "Quot.sound", "Classical.choice"]
+      comparator_config: "comparator.json"
+    - declaration: "Daboussi.fundamental_lemma"
+      file: "Daboussi/Fundamental.lean"
+      sorry_count: 0
+      axioms: ["propext", "Quot.sound", "Classical.choice"]
+    - declaration: "Daboussi.smooth_excess_small"
+      file: "Daboussi/ExcessEstimate.lean"
+      sorry_count: 0
+      axioms: ["propext", "Quot.sound", "Classical.choice"]
+    - declaration: "Daboussi.smooth_comparison"
+      file: "Daboussi/Comparison.lean"
+      sorry_count: 0
+      axioms: ["propext", "Quot.sound", "Classical.choice"]
+automation:
+  methods:
+    - method: "agent"
+      framework: "OpenAI Codex desktop"
+      tool_setup: "Local Lean compiler, pinned mathlib cache, axiom reports, and exported-proof comparison."
+      prompting_notes: >-
+        The user requested the full manuscript argument, a readable comparator
+        challenge and this metadata file, explicitly prohibiting a different PNT proof.
+  notes: "No subagents, PNT oracle, native_decide, added axioms, or proof substitution."
+fidelity:
+  divergences: >-
+    The main statement uses convergence instead of little-o. Smoothness uses
+    prime-divisor bounds and prime-power sums use restricted von Mangoldt.
+    Dirichlet convolution gives the smooth/rough identity. Smooth positive mass
+    is computed directly by Tonelli and the Euler product, replacing the
+    intermediate partial summation and polylogarithmic growth argument for Psi.
+    Primorial support makes the integrated prime-power sum finite before bounding
+    its coefficient by a geometric series. The centered moment and three ranges
+    are combined into an indicator-function majorant, with exp((1+epsilon) log y)
+    as split point. The below-cutoff proof absorbs a/t into epsilon/2 by enlarging T.
+    General scalar/filter and geometric-block lemmas organize the limits. These
+    are technical reorganizations of the supplied proof, not a different PNT proof.
+review:
+  status: "self-assessed"
+  reviewers: ["OpenAI Codex"]
+  notes: >-
+    Local compiler checks and transitive axiom inspection cover all supporting
+    modules and the main theorem; see Verification and Audit.lean. The bundled
+    comparator accepted the exported solution, including statement comparison,
+    axiom checking, and kernel replay (exit code 0). Windows requires
+    its no-sandbox mode, so this is not an isolated adversarial build check.
+    No independent peer review or author endorsement is claimed.
+alignment:
+  namespace: "Daboussi"
+  statements:
+    - {source: "Equation (signed)", lean: "signed_integral_bound", module: "Daboussi/SignedIntegral.lean", status: "proved"}
+    - {source: "Section 2, geometric blocks", lean: "block_deficit_growth", module: "Daboussi/Blocks.lean", status: "proved"}
+    - {source: "Equation (support)", lean: "smoothM_support", module: "Daboussi/SmoothSupport.lean", status: "proved"}
+    - {source: "Equation (positive-mass)", lean: "smooth_mass_eq_euler_product", module: "Daboussi/SmoothMass.lean", status: "proved"}
+    - {source: "Proposition 3", lean: "smooth_comparison", module: "Daboussi/Comparison.lean", status: "proved"}
+    - {source: "Section 3, deficit control", lean: "deficit_control", module: "Daboussi/DeficitControl.lean", status: "proved"}
+    - {source: "Equation (below)", lean: "below_excess_small", module: "Daboussi/BelowIntegral.lean", status: "proved"}
+    - {source: "Smooth logarithmic identities", lean: "smoothM_log_identity, psi_log_identity", module: "Daboussi/SmoothLogarithms.lean", status: "proved"}
+    - {source: "Equation (excess-inequality)", lean: "excess_recurrence", module: "Daboussi/ExcessRecurrence.lean", status: "proved"}
+    - {source: "Integrated recurrence", lean: "excess_moment_le_coefficient", module: "Daboussi/ExcessMoment.lean", status: "proved"}
+    - {source: "Centered moment and three ranges", lean: "smooth_excess_three_ranges", module: "Daboussi/ExcessEstimate.lean", status: "proved"}
+    - {source: "Equation (excess-goal)", lean: "smooth_excess_small", module: "Daboussi/ExcessEstimate.lean", status: "proved"}
+    - {source: "Fundamental Lemma", lean: "fundamental_lemma", module: "Daboussi/Fundamental.lean", status: "proved"}
+    - {source: "Theorem 1", lean: "mobius_summatory_limit", module: "Solution.lean", status: "proved"}

@@ -1,0 +1,40 @@
+Toolchain: Lean 4.35.0-rc3, commit 470d5ce1400764999581fd26d5d72b00d990b0f4
+Mathlib: 3f6737de4761ec7bf368491fe9faccc991ebd6ca
+
+Compilation and axiom audit:
+  verify-local.ps1 -LeanBinary <matching lean.exe> -MathlibRoot <pinned mathlib checkout>
+  This compiles the proof modules, Proofs, Audit, Challenge, Solution, MainAudit.
+  The additional umbrella module Daboussi.lean was also compiled separately.
+
+Export commands (LEAN_PATH set to the project and pinned dependency build directories):
+  leanexport Challenge -- <targets> > Challenge.ndjson
+  leanexport Solution -- <targets> > Solution.ndjson
+
+Targets, matching the bundled comparator's defaults:
+  Quot Quot.mk Quot.lift Quot.ind Daboussi.mobius_summatory_limit
+  propext Quot.sound Classical.choice
+  Nat.add Nat.sub Nat.mul Nat.pow Nat.gcd Nat.div Nat.mod Nat.beq Nat.ble
+  Nat.land Nat.lor Nat.xor Nat.shiftLeft Nat.shiftRight String.ofList Char.ofNat
+  List eagerReduce Nat String String.mk Char optParam autoParam semiOutParam outParam
+
+Comparator:
+  lake comparator --inadvisably-no-sandbox --config comparator.json
+    --challenge-from-export=<absolute Challenge.ndjson path>
+    --solution-from-export=<absolute Solution.ndjson path>
+
+The unmodified bundled comparator accepted the statement, axiom set, and
+kernel replay. See comparator.log for its full verdict and exit code 0.
+
+Windows compatibility setup:
+  TMP and TEMP pointed to a writable task-local directory.
+  PATH included Git's usr/bin for env.exe.
+  A task-local copy of Windows where.exe named which.exe supplied the path
+  lookup utility expected by this comparator version. No comparator, exporter,
+  or kernel-checker code was changed.
+
+This Windows run did not isolate builds against adversarial code. On Linux
+with bubblewrap, use `lake comparator --config comparator.json` from a trusted
+copy of the project for the normal isolated workflow.
+
+The large NDJSON exports are not bundled in the source archive; their hashes
+and byte counts are in export-hashes.json. They can be regenerated as above.
