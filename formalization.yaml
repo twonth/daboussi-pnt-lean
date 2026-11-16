@@ -13,11 +13,11 @@ project:
 sources:
   - title: "Daboussi's elementary proof of the prime number theorem, revisited"
     authors: ["Paul Pollack"]
-    id: "User-supplied manuscript, preserved in paper.tex"
+    id: "Author-supplied revision of 2026-11-16, preserved verbatim in paper.tex"
     type: "article"
     location: "Theorem 1 and its proof in sections 2–4"
     relationship: "formalizes"
-    note: "Source authorship does not imply endorsement or review of this output."
+    note: "Latest polish changes exposition and equation labels, not mathematical statements. Source authorship does not imply endorsement or review of this output."
     author_endorsement: "other"
 related_formalizations:
   - title: "PrimeGapsLib elementary Mertens estimates, local extraction"
@@ -97,7 +97,7 @@ alignment:
     - {source: "Proposition 3", lean: "smooth_comparison", module: "Daboussi/Comparison.lean", status: "proved"}
     - {source: "Section 3, deficit control", lean: "deficit_control", module: "Daboussi/DeficitControl.lean", status: "proved"}
     - {source: "Equation (below)", lean: "below_excess_small", module: "Daboussi/BelowIntegral.lean", status: "proved"}
-    - {source: "Smooth logarithmic identities", lean: "smoothM_log_identity, psi_log_identity", module: "Daboussi/SmoothLogarithms.lean", status: "proved"}
+    - {source: "Equations (needabs) and (psi-log)", lean: "smoothM_log_identity, psi_log_identity", module: "Daboussi/SmoothLogarithms.lean", status: "proved"}
     - {source: "Equation (excess-inequality)", lean: "excess_recurrence", module: "Daboussi/ExcessRecurrence.lean", status: "proved"}
     - {source: "Integrated recurrence", lean: "excess_moment_le_coefficient", module: "Daboussi/ExcessMoment.lean", status: "proved"}
     - {source: "Centered moment and three ranges", lean: "smooth_excess_three_ranges", module: "Daboussi/ExcessEstimate.lean", status: "proved"}

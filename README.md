@@ -2,9 +2,12 @@
 
 Public repository: https://github.com/twonth/daboussi-pnt-lean
 
-The bundled manuscript is the final supplied revision with the Lean availability
-statement inserted. Its smooth-number cutoff is **y ≥ 2**, as already supported
-by the formalization. All Lean sources are unchanged from the verified build.
+The bundled manuscript is the author's polished revision supplied on
+2026-11-16, preserved verbatim in `paper.tex`. Its cutoff remains **y ≥ 2**.
+The revision changes exposition, equation labels/order, and bibliography
+formatting; the mathematical statements and proof dependencies are unchanged.
+The existing Lean proofs are reused without modification. See
+`Verification/manuscript-update-2026-11-16.md` for the alignment review.
 
 This project formalizes Theorem 1 of Paul Pollack's supplied manuscript,
 **M(x) = o(x)**, following its smooth-number proof. The manuscript is preserved
@@ -34,7 +37,7 @@ All declarations below are in namespace `Daboussi`.
 | Proposition 3 | `smooth_comparison` | `Comparison.lean` |
 | §3 deficit reduction | `deficit_control` | `DeficitControl.lean` |
 | Equation (below) | `below_excess_small` | `BelowIntegral.lean` |
-| Smooth logarithmic identities | `smoothM_log_identity`, `psi_log_identity` | `SmoothLogarithms.lean` |
+| Equations (needabs) and (psi-log) | `smoothM_log_identity`, `psi_log_identity` | `SmoothLogarithms.lean` |
 | Equation (excess-inequality) | `excess_recurrence` | `ExcessRecurrence.lean` |
 | Changes of integration order and variables | `excess_average_mass`, `scaled_excess_mass` | `ExcessFubini.lean`, `ExcessScaling.lean` |
 | Integrated recurrence | `excess_moment_le_coefficient` | `ExcessMoment.lean` |

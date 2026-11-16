@@ -1,46 +1,46 @@
 Daboussi\MertensUpper.lean:169:31: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
-  i╠╡f╠╡_╠╡p╠╡o╠╡s╠╡i╠▓t╠▓e╠▓_╠▓e╠▓q╠▓_╠▓l╠▓e╠▓f╠▓t╠▓
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
 Daboussi\MertensUpper.lean:170:31: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
 
 Hint: Replace the deprecated name:
-  i╠╡f╠╡_╠╡n╠╡e╠╡g╠╡i╠▓t╠▓e╠▓_╠▓e╠▓q╠▓_╠▓r╠▓i╠▓g╠▓h╠▓t╠▓
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
 Daboussi\MertensUpper.lean:208:35: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
-  i╠╡f╠╡_╠╡p╠╡o╠╡s╠╡i╠▓t╠▓e╠▓_╠▓e╠▓q╠▓_╠▓l╠▓e╠▓f╠▓t╠▓
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
 Daboussi\MertensUpper.lean:214:35: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
 
 Hint: Replace the deprecated name:
-  i╠╡f╠╡_╠╡n╠╡e╠╡g╠╡i╠▓t╠▓e╠▓_╠▓e╠▓q╠▓_╠▓r╠▓i╠▓g╠▓h╠▓t╠▓
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
 Daboussi\MertensUpper.lean:223:49: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
-  i╠╡f╠╡_╠╡p╠╡o╠╡s╠╡i╠▓t╠▓e╠▓_╠▓e╠▓q╠▓_╠▓l╠▓e╠▓f╠▓t╠▓
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
 Daboussi\MertensUpper.lean:224:37: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
-  i╠╡f╠╡_╠╡p╠╡o╠╡s╠╡i╠▓t╠▓e╠▓_╠▓e╠▓q╠▓_╠▓l╠▓e╠▓f╠▓t╠▓
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
 Daboussi\MertensUpper.lean:229:37: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
-  i╠╡f╠╡_╠╡p╠╡o╠╡s╠╡i╠▓t╠▓e╠▓_╠▓e╠▓q╠▓_╠▓l╠▓e╠▓f╠▓t╠▓
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
 Daboussi\MertensUpper.lean:284:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
-  i╠╡f╠╡_╠╡p╠╡o╠╡s╠╡i╠▓t╠▓e╠▓_╠▓e╠▓q╠▓_╠▓l╠▓e╠▓f╠▓t╠▓
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
 Daboussi\MertensUpper.lean:284:21: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
 
 Hint: Replace the deprecated name:
-  i╠╡f╠╡_╠╡p╠╡o╠╡s╠╡i╠▓t╠▓e╠▓_╠▓e╠▓q╠▓_╠▓l╠▓e╠▓f╠▓t╠▓
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
 Daboussi\MertensUpper.lean:291:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
 
 Hint: Replace the deprecated name:
-  i╠╡f╠╡_╠╡n╠╡e╠╡g╠╡i╠▓t╠▓e╠▓_╠▓e╠▓q╠▓_╠▓r╠▓i╠▓g╠▓h╠▓t╠▓
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
 Daboussi\MertensUpper.lean:291:21: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
 
 Hint: Replace the deprecated name:
-  i╠╡f╠╡_╠╡n╠╡e╠╡g╠╡i╠▓t╠▓e╠▓_╠▓e╠▓q╠▓_╠▓r╠▓i╠▓g╠▓h╠▓t╠▓
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
 'AmicableMertens.sum_inv_prime_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'PrimeGaps.abs_sum_vonMangoldt_div_sub_log' depends on axioms: [propext, Classical.choice, Quot.sound]
