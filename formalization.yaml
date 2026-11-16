@@ -11,13 +11,13 @@ project:
     - "Axiom Math (reused Mertens development; see vendor-provenance.json)"
   license: "Not specified for new material; Apache-2.0 for the reused Mertens file"
 sources:
-  - title: "Daboussi's elementary proof of the prime number theorem, revisited"
+  - title: "Daboussi's elementary proof of the prime number theorem, reconsidered"
     authors: ["Paul Pollack"]
     id: "Author-supplied revision of 2026-11-16, preserved verbatim in paper.tex"
     type: "article"
     location: "Theorem 1 and its proof in sections 2–4"
     relationship: "formalizes"
-    note: "Latest polish changes exposition and equation labels, not mathematical statements. Source authorship does not imply endorsement or review of this output."
+    note: "Latest revision changes the title, citation details and expository wording, and adds the extended Selberg interview link; mathematical statements are unchanged. Source authorship does not imply endorsement or review of this output."
     author_endorsement: "other"
 related_formalizations:
   - title: "PrimeGapsLib elementary Mertens estimates, local extraction"

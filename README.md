@@ -2,12 +2,17 @@
 
 Public repository: https://github.com/twonth/daboussi-pnt-lean
 
-The bundled manuscript is the author's polished revision supplied on
-2026-11-16, preserved verbatim in `paper.tex`. Its cutoff remains **y ≥ 2**.
-The revision changes exposition, equation labels/order, and bibliography
-formatting; the mathematical statements and proof dependencies are unchanged.
-The existing Lean proofs are reused without modification. See
-`Verification/manuscript-update-2026-11-16.md` for the alignment review.
+The bundled manuscript is the author's latest revision supplied on
+2026-11-16, **Daboussi's elementary proof of the prime number theorem,
+reconsidered**, preserved verbatim in [paper.tex](paper.tex).
+The supplied [PDF](paper.pdf) is also included unchanged.
+
+This revision updates the title, citation details and explanatory wording,
+and adds a link to the extended Selberg interview. Mathematical statements
+and proof dependencies are unchanged; the existing Lean proofs are reused.
+See [the latest alignment review](Verification/manuscript-bibliography-update-2026-11-16.md).
+The earlier rebuild and comparator records are retained; no new compiler run
+was needed for this manuscript-only revision.
 
 This project formalizes Theorem 1 of Paul Pollack's supplied manuscript,
 **M(x) = o(x)**, following its smooth-number proof. The manuscript is preserved
